@@ -1,0 +1,20 @@
+{% extends 'html/base.html' %}
+
+{% block content %}
+
+<div>
+    <div style="height: 5%; width: 10%; border: 1px solid black; margin: 3vh; cursor: pointer; background-color: rgb(223, 219, 219);">
+        <a href="{% url 'agenda' %}" style="text-align: center; color: black; text-decoration: none; font-size: 40px;">Agenda</a>
+    </div>
+    <div style="height: 5%; width: 10%; border: 1px solid black; margin: 3vh; cursor: pointer; background-color: rgb(223, 219, 219)">
+        <a href="{% url 'paciente' %}" style="text-align: center; color: black; text-decoration: none; font-size: 40px;">Pacientes</a>
+    </div>
+    <div style="height: 5%; width: 10%; border: 1px solid black; margin: 3vh; cursor: pointer;background-color: rgb(223, 219, 219)">
+        <a href="{% url 'anotação' %}" style="text-align: center; color: black; text-decoration: none; font-size: 40px;">Anotações</a>
+    </div>
+    <div style="height: 5%; width: 10%; border: 1px solid black; margin: 3vh; cursor: pointer;background-color: rgb(223, 219, 219)">
+        <a href="{% url 'plano_trabalho' %}" style="text-align: center; color: black; text-decoration: none; font-size: 40px;">Plano de Trabalho</a>
+    </div>
+</div>
+
+{% endblock %}
