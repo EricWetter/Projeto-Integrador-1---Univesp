@@ -4,8 +4,21 @@
 
 <div>
     <h1>Paciente</h1>
+    <form method="get">
+        <input type="text" name="search" placeholder="pesquisar" value="{{request.GET.search}}">    
+        <input type="submit" value="pesquisar">
+    </form>
 </div>
 
+<a href="{% url 'cadastro_paciente' %}" style="color: blue; cursor: pointer;">Cadastrar Paciente</a>
+
+{% for paciente in pacientes %}
+<div style="margin-left: 3%;">
+    <p style="font-weight: bolder;">Nome Paciente</p>
+    <p><a href="Paciente_Dados/{{paciente.id}}">{{paciente.nome_paciente}}</a></p>
+    <br>
+</div>
+{% endfor %}
 <a href="{% url 'index' %}" style="color: blue; cursor: pointer;">Voltar</a>
 
 {% endblock %}
