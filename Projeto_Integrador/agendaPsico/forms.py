@@ -1,5 +1,5 @@
 from django import forms
-from .models import Paciente
+from .models import Paciente, Anotação
 
 class Paciente_Form(forms.ModelForm):
 
@@ -18,4 +18,13 @@ class Paciente_Form(forms.ModelForm):
                   'número',
                   'cidade',
                   'estado',
+                )
+        
+
+class Anotação_Form(forms.ModelForm):
+    
+    class Meta:
+        model = Anotação
+        fields = ('paciente',
+                  'registro',
                 )

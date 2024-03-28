@@ -1,0 +1,17 @@
+{% extends 'html/base.html' %}
+
+{% block content %}
+
+<div>
+    <h1>Nova Anotação</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{form.as_p}}
+        <input type="submit" value="Salvar">
+    </form>
+</div>
+
+
+<a href="{% url 'anotação' %}" style="color: blue; cursor: pointer;">Voltar</a>
+
+{% endblock %}

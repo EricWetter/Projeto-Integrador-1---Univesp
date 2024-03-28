@@ -16,3 +16,13 @@ class Paciente(models.Model):
     número = models.CharField(max_length=11, blank=True)
     cidade = models.CharField(max_length=100, blank=True)
     estado = models.CharField(max_length=2, blank=True) 
+
+    def __str__(self):
+        return self.nome_paciente
+
+class Anotação(models.Model):
+    paciente = models.ForeignKey(Paciente, on_delete=models.CASCADE)
+    registro = models.TextField()
+    data = models.DateTimeField(auto_now_add=True)
+
+

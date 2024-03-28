@@ -6,6 +6,16 @@
     <h1>Anotação</h1>
 </div>
 
+<a href="{% url 'anotação_nova' %}" style="color: blue; cursor: pointer;">Adicionar Anotação</a>
+
+{% for paciente in pacientes %}
+<div style="margin-left: 3%;">
+    <p style="font-weight: bolder;">Nome Paciente</p>
+    <p><a href="Anotação_Dados/{{paciente.id}}">{{paciente.nome_paciente}}</a></p>
+    <br>
+</div>
+{% endfor %}
+
 <a href="{% url 'index' %}" style="color: blue; cursor: pointer;">Voltar</a>
 
 {% endblock %}

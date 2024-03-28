@@ -1,8 +1,8 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import request, HttpResponse
 from django.urls import reverse
-from .models import Paciente
-from .forms import Paciente_Form
+from .models import Paciente, Anotação
+from .forms import Paciente_Form, Anotação_Form
 
 
 # Create your views here.
@@ -22,9 +22,6 @@ def paciente(request):
 
         pacientes = Paciente.objects.all()
     return render(request, 'html/paciente.html', {'pacientes': pacientes})
-
-def anotação(request):
-    return render(request, 'html/anotação.html')
 
 def plano_trabalho(request):
     return render(request, 'html/plano_trabalho.html')
@@ -56,3 +53,23 @@ def editar_paciente(request, id):
             return render(request, 'html/editar_paciente.html', {'form': form, 'paciente': paciente})    
     else:
         return render(request, 'html/editar_paciente.html', {'form': form, 'paciente': paciente})
+    
+def anotação(request):
+    pacientes = Paciente.objects.all()
+    return render(request, 'html/anotação.html', {'pacientes': pacientes})
+
+def anotação_dados(request, id):
+    paciente = get_object_or_404(Paciente, pk=id)
+    anotações = Anotação.objects.filter(paciente=id)
+    return render(request, 'html/anotação_dados.html', {'anotações': anotações, 'paciente': paciente})
+
+def anotação_nova(request):
+    if request.method == 'POST':
+        form = Anotação_Form(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('anotação')
+    else:
+        form = Anotação_Form()
+        return render(request, 'html/anotação_nova.html', {'form': form})
+    
