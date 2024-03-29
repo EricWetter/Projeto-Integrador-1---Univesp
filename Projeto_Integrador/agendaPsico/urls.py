@@ -11,5 +11,6 @@ urlpatterns = [
     path('Plano_de_Trabalho', views.plano_trabalho, name='plano_trabalho'),
     path('Anotação', views.anotação, name='anotação'),
     path('Anotação_Dados/<int:id>', views.anotação_dados, name='anotação_dados'),
-    path('Anotação_Nova', views.anotação_nova, name='anotação_nova'),    
+    path('Anotação_Nova', views.anotação_nova, name='anotação_nova'),
+    path('Anotação_Dados/Editar_Anotação/<int:id>', views.editar_anotação, name='editar_anotação'),    
 ]

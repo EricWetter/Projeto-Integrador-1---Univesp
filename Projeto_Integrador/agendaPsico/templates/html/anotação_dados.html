@@ -5,11 +5,10 @@
 <div>
     <h1>Anotação Dados</h1>
 </div>
-
 <p style="font-weight: bolder;">{{paciente.nome_paciente}}</p>
 {% for anotação in anotações %}
 <div style="margin-left: 3%;">
-    <p style="font-weight: bolder;">Anotação</p>
+    <p style="font-weight: bolder;"><a href="Editar_Anotação/{{anotação.id}}">Anotação</a></p>
     <p>{{anotação.registro}}</p>
     <p style="font-weight: bolder;">Data da Anotação</p>
     <p>{{anotação.data}}</p>

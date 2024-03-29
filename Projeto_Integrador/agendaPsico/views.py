@@ -73,3 +73,17 @@ def anotação_nova(request):
         form = Anotação_Form()
         return render(request, 'html/anotação_nova.html', {'form': form})
     
+def editar_anotação(request, id):
+    registro = get_object_or_404(Anotação, pk=id)
+    paciente = registro.paciente.pk
+    form = Anotação_Form(instance=registro)
+    if(request.method == 'POST'):
+        form = Anotação_Form(request.POST, instance=registro)
+        if form.is_valid():
+            registro.save()
+            return redirect(reverse('anotação_dados', kwargs={'id': paciente}))
+        else:
+            return render(request, 'html/editar_anotação.html', {'form': form, 'registro': registro})    
+    else:
+        return render(request, 'html/editar_anotação.html', {'form': form, 'registro': registro})
+    
