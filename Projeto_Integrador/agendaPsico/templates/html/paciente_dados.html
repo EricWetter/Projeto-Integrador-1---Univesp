@@ -3,40 +3,27 @@
 {% block content %}
 
 <div>
-    <h1>Paciente Dados</h1>
+    <h3 style="margin: 2%;">Paciente Dados</h3>
 </div>
 
 
 {% for dado in dados %}
-<div style="margin-left: 3%;">
-    <p style="font-weight: bolder;"><a href="Editar_Paciente/{{dado.id}}" style="cursor: pointer;">{{dado.nome_paciente}}</a></p>
-    <p style="font-weight: bolder;">Data de Nascimento</p>
-    <p>{{dado.nascimento_paciente}}</p>
-    <p style="font-weight: bolder;">Telefone Paciente</p>
-    <p>{{dado.telefone_paciente}}</p>
-    <p style="font-weight: bolder;">Nome da Mãe</p>
-    <p>{{dado.nome_mãe}}</p>
-    <p style="font-weight: bolder;">Telefone da Mãe</p>
-    <p>{{dado.telefone_mãe}}</p>
-    <p style="font-weight: bolder;">Nome do Pai</p>
-    <p>{{dado.nome_pai}}</p>
-    <p style="font-weight: bolder;">Telefone do Pai</p>
-    <p>{{dado.telefone_pai}}</p>
-    <p style="font-weight: bolder;">Data Início Tratamento</p>
-    <p>{{dado.início_tratamento}}</p>
-    <p style="font-weight: bolder;">Data Término Tratamento</p>
-    <p>{{dado.término_tratamento}}</p>
-    <p style="font-weight: bolder;">Endereço</p>
-    <p>{{dado.endereço}}</p>
-    <p style="font-weight: bolder;">Número</p>
-    <p>{{dado.número}}</p>
-    <p style="font-weight: bolder;">Cidade</p>
-    <p>{{dado.cidade}}</p>
-    <p style="font-weight: bolder;">Estado</p>
-    <p>{{dado.estado}}</p>
-    <br>
-</div>
+<div class="card card_paciente_dados" style="width: 90%;">
+    <div class="card-body">
+      <h3 class="card-title">{{dado.nome_paciente}}</h3>
+      <h4 class="card-title">Nascimento: {{dado.nascimento_paciente}}</h4><br>
+      <h4 class="card-title">Telefone: {{dado.telefone_paciente}}</h4><br>
+      <h4 class="card-title">Responsável: {{dado.responsável}}</h4><br>
+      <h4 class="card-title">Início do Tratamento: {{dado.início_tratamento}}</h4><br>
+      <h4 class="card-title">Término do Tratamento: {{dado.término_tratamento}}</h4><br>
+      <h4 class="card-title">Endereço: {{dado.endereço}}, nº {{dado.número}}</h4><br>
+      <h4 class="card-title">{{dado.cidade}} / {{dado.estado}}</h4><br>
+      <a href="Editar_Paciente/{{dado.id}}" class="card-link">Editar</a>
+      <a href="Paciente_Excluir/{{dado.id}}" class="card-link">Excluir</a>
+    </div>
+  </div>
+
 {% endfor %}
-<a href="{% url 'paciente' %}" style="color: blue; cursor: pointer;">Voltar</a>
+<p style="margin-left: 2%;"><a class="btn btn-primary" href="{% url 'paciente' %}">Voltar</a></p>
 
 {% endblock %}

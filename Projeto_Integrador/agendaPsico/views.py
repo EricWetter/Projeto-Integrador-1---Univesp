@@ -30,9 +30,8 @@ def cadastro_paciente(request):
     if request.method == 'POST':
         form = Paciente_Form(request.POST)
         if form.is_valid():
-            cadastro = form.save(commit=False)
-            cadastro.save()
-            return redirect('paciente')
+           form.save()
+           return redirect('index')
     else:
         form = Paciente_Form()
         return render(request, 'html/cadastro_paciente.html', {'form': form})
@@ -63,15 +62,18 @@ def anotação_dados(request, id):
     anotações = Anotação.objects.filter(paciente=id)
     return render(request, 'html/anotação_dados.html', {'anotações': anotações, 'paciente': paciente})
 
-def anotação_nova(request):
+def anotação_nova(request, id):
+    paciente = get_object_or_404(Paciente, pk=id)
     if request.method == 'POST':
         form = Anotação_Form(request.POST)
         if form.is_valid():
-            form.save()
-            return redirect('anotação')
+            anotação = form.save(commit=False)
+            anotação.paciente = paciente
+            anotação.save()
+            return redirect('paciente')
     else:
         form = Anotação_Form()
-        return render(request, 'html/anotação_nova.html', {'form': form})
+        return render(request, 'html/anotação_nova.html', {'form': form, 'paciente': paciente})
     
 def editar_anotação(request, id):
     registro = get_object_or_404(Anotação, pk=id)
@@ -86,4 +88,14 @@ def editar_anotação(request, id):
             return render(request, 'html/editar_anotação.html', {'form': form, 'registro': registro})    
     else:
         return render(request, 'html/editar_anotação.html', {'form': form, 'registro': registro})
-    
+
+def paciente_excluir(request, id):
+    paciente = get_object_or_404(Paciente, pk=id)
+    paciente.delete()
+    return redirect(reverse('paciente'))
+
+def anotação_excluir(request, id):
+    anotação = get_object_or_404(Anotação, pk=id)
+    paciente = anotação.paciente.pk
+    anotação.delete()
+    return redirect(reverse('anotação_dados', kwargs={'id': paciente}))

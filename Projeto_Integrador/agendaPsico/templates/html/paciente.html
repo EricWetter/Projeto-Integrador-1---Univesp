@@ -2,23 +2,35 @@
 
 {% block content %}
 
-<div>
-    <h1>Paciente</h1>
+<div style="margin-left: 2%;">
+    <h3 style="margin-top: 2%;">Paciente</h3>
     <form method="get">
         <input type="text" name="search" placeholder="pesquisar" value="{{request.GET.search}}">    
         <input type="submit" value="pesquisar">
     </form>
 </div>
 
-<a href="{% url 'cadastro_paciente' %}" style="color: blue; cursor: pointer;">Cadastrar Paciente</a>
-
 {% for paciente in pacientes %}
-<div style="margin-left: 3%;">
+<div class="card card_paciente" style="width: 20rem;">
+    <div class="card-body">
+      <h5 class="card-title">{{paciente.nome_paciente}}</h5>
+      <h6 class="card-subtitle mb-2 text-body-secondary">{{paciente.nascimento.paciente}}</h6>
+      <a href="Paciente_Dados/{{paciente.id}}" class="card-link">Dados</a>
+      <a href="Anotação_Dados/{{paciente.id}}" class="card-link">Anotações</a>
+      <a href="Anotação_Nova/{{paciente.id}}" class="card-link">Criar Anotação</a>
+    </div>
+  </div>
+{% endfor %}
+<p style="margin-left: 2%;"><a class="btn btn-primary" href="{% url 'index' %}">Voltar</a></p>
+
+{% endblock %}
+
+
+<!--
+  <div style="margin-left: 3%;">
     <p style="font-weight: bolder;">Nome Paciente</p>
     <p><a href="Paciente_Dados/{{paciente.id}}">{{paciente.nome_paciente}}</a></p>
     <br>
 </div>
-{% endfor %}
-<a href="{% url 'index' %}" style="color: blue; cursor: pointer;">Voltar</a>
 
-{% endblock %}
+-->

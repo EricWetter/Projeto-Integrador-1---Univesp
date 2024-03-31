@@ -1,17 +1,66 @@
 {% extends 'html/base.html' %}
-
+{% block title%}Cadastrar Cliente{% endblock%}
 {% block content %}
-
-<div>
-    <h1>Cadastro Paciente</h1>
-    <form method="post">
+<!--
+<div class="formulario">
+    <form method="POST" class="row g-3">
         {% csrf_token %}
-        {{form.as_p}}
-        <input type="submit" value="Salvar">
+        <div class="col-md-4">
+            <label for="validationDefault01" class="form-label">Nome Paciente</label>
+            <input type="text" class="form-control" id="validationDefault01" required>
+        </div>
+        <div class="col-md-4">
+            <label for="validationDefault01" class="form-label">Data de Nascimento</label>
+            <input type="text" class="form-control" id="validationDefault01" required>
+        </div>
+        <div class="col-md-4">
+            <label for="validationDefault01" class="form-label">{{form.telefone_paciente}}</label>
+            <input type="text" class="form-control" id="validationDefault01" required>
+        </div>
+        <div class="col-md-4">
+            <label for="validationDefault01" class="form-label">{{form.responsável}}</label>
+            <input type="text" class="form-control" id="validationDefault01" required>
+        </div>
+        <div class="col-md-4">
+            <label for="validationDefault01" class="form-label">{{form.início_tratamento}}</label>
+            <input type="text" class="form-control" id="validationDefault01" required>
+        </div>
+        <div class="col-md-4">
+            <label for="validationDefault01" class="form-label">{{form.término_tratamento}}</label>
+            <input type="text" class="form-control" id="validationDefault01" required>
+        </div>
+        <div class="col-md-4">
+            <label for="validationDefault01" class="form-label">{{form.endereço}}</label>
+            <input type="text" class="form-control" id="validationDefault01" required>
+        </div>
+        <div class="col-md-4">
+            <label for="validationDefault01" class="form-label">{{form.número}}</label>
+            <input type="text" class="form-control" id="validationDefault01" required>
+        </div>
+        <div class="col-md-4">
+            <label for="validationDefault01" class="form-label">{{form.cidade}}</label>
+            <input type="text" class="form-control" id="validationDefault01" required>
+        </div>
+        <div class="col-md-4">
+            <label for="validationDefault01" class="form-label">{{form.estado}}</label>
+            <input type="text" class="form-control" id="validationDefault01" required>
+        </div>
+    
+        
     </form>
+</div>  
+-->
+<div>
+    <h3 style="margin-left: 6%;">Cadastro Paciente</h3>
+    <div>
+        <form method="post" class="formulário">
+            {% csrf_token %}
+            {{form.as_p}}
+            <input class="btn btn-primary" type="submit" value="Salvar">
+            <a class="btn btn-primary" href="{% url 'index' %}">Voltar</a>
+        </form>
+    </div>
 </div>
 
-
-<a href="{% url 'paciente' %}" style="color: blue; cursor: pointer;">Voltar</a>
 
 {% endblock %}

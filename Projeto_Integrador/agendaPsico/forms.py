@@ -8,10 +8,7 @@ class Paciente_Form(forms.ModelForm):
         fields = ('nome_paciente',
                   'nascimento_paciente',
                   'telefone_paciente',
-                  'nome_mãe',
-                  'telefone_mãe',
-                  'nome_pai',
-                  'telefone_pai',
+                  'responsável',
                   'início_tratamento',
                   'término_tratamento',
                   'endereço',
@@ -19,12 +16,25 @@ class Paciente_Form(forms.ModelForm):
                   'cidade',
                   'estado',
                 )
-        
+        widgets = {
+            'nome_paciente': forms.TextInput(attrs={'class': 'form-control'}),
+            'nascimento_paciente':forms.DateInput(attrs={'class': 'form-control'}),
+            'telefone_paciente':forms.TextInput(attrs={'class': 'form-control'}),
+            'responsável':forms.TextInput(attrs={'class': 'form-control'}),
+            'início_tratamento':forms.DateInput(attrs={'class': 'form-control'}),
+            'término_tratamento':forms.DateInput(attrs={'class': 'form-control'}),
+            'endereço':forms.TextInput(attrs={'class': 'form-control'}),
+            'número':forms.TextInput(attrs={'class': 'form-control'}),
+            'cidade':forms.TextInput(attrs={'class': 'form-control'}),
+            'estado':forms.TextInput(attrs={'class': 'form-control'}), 
+        }
 
 class Anotação_Form(forms.ModelForm):
     
     class Meta:
         model = Anotação
-        fields = ('paciente',
-                  'registro',
-                )
+        fields = ('registro',)
+        widgets = {
+            'registro': forms.TextInput(attrs={'class': 'form-control'}),
+        }
+

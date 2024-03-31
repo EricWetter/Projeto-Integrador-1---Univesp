@@ -3,15 +3,16 @@
 {% block content %}
 
 <div>
-    <h1>Editar Anotação</h1>
-    <form method="post">
+    <h3 style="margin-left: 6%; margin-top: 2%;">Editar Anotação</h3>
+    <h4 style="margin-left: 6%;">{{registro.paciente.nome_paciente}}</h4>
+    
+    <form method="post" class="formulário">
         {% csrf_token %}
         {{form.as_p}}
-        <input type="submit" value="Salvar">
+        <input class="btn btn-primary" type="submit" value="Salvar">
+        <a class="btn btn-primary" href="/Anotação_Dados/{{registro.paciente.id}}">Voltar</a>
     </form>
 </div>
 
-
-<a href="{% url 'anotação' %}" style="color: blue; cursor: pointer;">Voltar</a>
 
 {% endblock %}

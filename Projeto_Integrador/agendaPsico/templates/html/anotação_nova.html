@@ -3,15 +3,15 @@
 {% block content %}
 
 <div>
-    <h1>Nova Anotação</h1>
-    <form method="post">
-        {% csrf_token %}
-        {{form.as_p}}
-        <input type="submit" value="Salvar">
-    </form>
-</div>
-
-
-<a href="{% url 'anotação' %}" style="color: blue; cursor: pointer;">Voltar</a>
+    <h3 style="margin-left: 6%; margin-top: 2%;">Nova Anotação</h3>
+    <h5 style="margin-left: 6%;">{{paciente.nome_paciente}}</h5>
+    <div>
+        <form method="post" class="formulário" style="display: block; height: 30vh;">
+            {% csrf_token %}
+            {{form.as_p}}
+            <input class="btn btn-primary" type="submit" value="Salvar">
+            <a class="btn btn-primary" href="{% url 'paciente' %}">Voltar</a>
+        </form>
+    </div>
 
 {% endblock %}

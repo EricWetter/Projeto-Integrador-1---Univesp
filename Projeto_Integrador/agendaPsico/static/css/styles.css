@@ -1,0 +1,59 @@
+
+.header {
+    width: 100%;
+    background-color: rgb(15, 211, 236);
+    margin-top: -1;
+}
+.texto_icone {
+    display: flex;
+    padding: .5%;
+    margin-left: 1%;
+    align-items: center;
+}
+.txt_agenda {
+    font-size: 3vh;
+}
+.icon-google {
+    font-size: 4vh;
+    margin-left: 5%;
+}
+.material-symbols-outlined {
+    font-variation-settings:
+          'FILL' 0,
+          'wght' 400,
+          'GRAD' 0,
+          'opsz' 24
+    }
+
+.card {
+    width: 20%;
+    margin-top: 8%;
+    align-self: center;
+    margin-left: 5%;
+}
+.formulário { 
+    margin-left: 6%;
+    margin-right: 6%;
+    display: block;
+}
+
+.form-control {
+    display: inline-flexbox;
+    grid-row: inherit;
+}
+
+.card_paciente {
+    display: inline-grid;
+    margin-left: 2%;
+    margin: 2%;
+}
+
+.card_anotação{
+    display: inline-grid;
+    margin-left: 2º;
+    margin: 2%;
+}
+
+.card_paciente_dados {
+    margin: 2%;
+}

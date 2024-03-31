@@ -2,6 +2,25 @@
 
 {% block content %}
 
+<div class="nav_card">
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Agenda</h5>
+            <a href="{% url 'agenda' %}" class="card-link">Ver</a>
+            <a href="#" class="card-link">Incluir compromisso</a>
+        </div>
+    </div>
+
+    <div class="card card_index">
+        <div class="card-body">
+            <h5 class="card-title">Pacientes</h5>
+            <a href="{% url 'paciente' %}" class="card-link">Pacientes</a>
+            <a href="{% url 'cadastro_paciente' %}" class="card-link">Adicionar paciente</a>
+        </div>
+    </div>
+</div>
+
+<!-- 
 <div>
     <div style="height: 5%; width: 10%; border: 1px solid black; margin: 3vh; cursor: pointer; background-color: rgb(223, 219, 219);">
         <a href="{% url 'agenda' %}" style="text-align: center; color: black; text-decoration: none; font-size: 40px;">Agenda</a>
@@ -16,5 +35,6 @@
         <a href="{% url 'plano_trabalho' %}" style="text-align: center; color: black; text-decoration: none; font-size: 40px;">Plano de Trabalho</a>
     </div>
 </div>
+--->
 
 {% endblock %}

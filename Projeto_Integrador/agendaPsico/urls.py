@@ -11,6 +11,9 @@ urlpatterns = [
     path('Plano_de_Trabalho', views.plano_trabalho, name='plano_trabalho'),
     path('Anotação', views.anotação, name='anotação'),
     path('Anotação_Dados/<int:id>', views.anotação_dados, name='anotação_dados'),
-    path('Anotação_Nova', views.anotação_nova, name='anotação_nova'),
-    path('Anotação_Dados/Editar_Anotação/<int:id>', views.editar_anotação, name='editar_anotação'),    
+    path('Anotação_Nova/<int:id>', views.anotação_nova, name='anotação_nova'),
+    path('Anotação_Dados/Editar_Anotação/<int:id>', views.editar_anotação, name='editar_anotação'),
+    path('Editar_Anotação<int:id>', views.editar_anotação, name='editar_anotação'),
+    path('Anotação_Dados/Anotação_Excluir/<int:id>', views.anotação_excluir, name='anotação_excluir'),
+    path('Paciente_Dados/Paciente_Excluir/<int:id>', views.paciente_excluir, name='paciente_excluir'),    
 ]

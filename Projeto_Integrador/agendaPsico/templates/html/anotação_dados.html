@@ -3,18 +3,21 @@
 {% block content %}
 
 <div>
-    <h1>Anotação Dados</h1>
+    <h3 style="margin-left: 2%;">Anotação</h3>
 </div>
-<p style="font-weight: bolder;">{{paciente.nome_paciente}}</p>
+
 {% for anotação in anotações %}
-<div style="margin-left: 3%;">
-    <p style="font-weight: bolder;"><a href="Editar_Anotação/{{anotação.id}}">Anotação</a></p>
-    <p>{{anotação.registro}}</p>
-    <p style="font-weight: bolder;">Data da Anotação</p>
-    <p>{{anotação.data}}</p>
-    <br>
-</div>
+<div class="card card_anotação" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title">{{paciente.nome_paciente}}</h5>
+      <p class="card-text">{{anotação.registro}}</p>
+      <a href="Editar_Anotação/{{anotação.id}}" class="card-link">Editar</a>
+      <a href="Anotação_Excluir/{{anotação.id}}" class="card-link">Excluir</a>
+    </div>
+  </div>
+
+
 {% endfor %}
-<a href="{% url 'anotação' %}" style="color: blue; cursor: pointer;">Voltar</a>
+<p style="margin-left: 2%;"><a class="btn btn-primary" href="{% url 'paciente' %}">Voltar</a></p>
 
 {% endblock %}
