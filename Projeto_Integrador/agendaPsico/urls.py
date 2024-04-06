@@ -4,6 +4,9 @@ from . import views
 urlpatterns = [
     path('', views.index, name='index'),
     path('Agenda', views.agenda, name='agenda'),
+    path('Agenda_Ver', views.agenda_ver, name='agenda_ver'),
+    path('Editar_Agenda/<int:id>', views.editar_agenda, name='editar_agenda'),
+    path('Agenda_Excluir/<int:id>', views.agenda_excluir, name='agenda_excluir'),
     path('Paciente', views.paciente, name='paciente'),
     path('Paciente_Dados/<int:id>', views.paciente_dados, name='paciente_dados'),
     path('Cadastro_Paciente', views.cadastro_paciente, name='cadastro_paciente'),

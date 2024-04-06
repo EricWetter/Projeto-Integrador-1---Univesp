@@ -1,0 +1,22 @@
+{% extends 'html/base.html' %}
+
+{% block content %}
+
+<div>
+    <h1>Agenda</h1>
+</div>
+{% for agenda in agendas %}
+<div class="card card_paciente" style="width: 20rem;">
+    <div class="card-body">
+      <h5 class="card-title">{{agenda.data_tarefa}}</h5>
+      <h6 class="card-subtitle mb-2 text-body-secondary">{{agenda.tarefa}}</h6>
+      <a href="Editar_Agenda/{{agenda.id}}" class="card-link">Editar</a>
+      <a href="Agenda_Excluir/{{agenda.id}}" class="card-link">Excluir</a>
+    </div>
+  </div>
+{% endfor %}
+
+
+<p><a href="{% url 'index' %}" style="color: blue; cursor: pointer;">Voltar</a></p>
+{% endblock %}
+

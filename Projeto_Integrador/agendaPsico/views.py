@@ -1,8 +1,8 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import request, HttpResponse
 from django.urls import reverse
-from .models import Paciente, Anotação
-from .forms import Paciente_Form, Anotação_Form
+from .models import Paciente, Anotação, Agenda
+from .forms import Paciente_Form, Anotação_Form, Agenda_Form
 
 
 # Create your views here.
@@ -11,7 +11,42 @@ def index(request):
     return render(request, 'html/index.html')
 
 def agenda(request):
-    return render(request, 'html/agenda.html')
+    if request.method == 'POST':
+        tarefa = request.POST.get('adicionar_tarefa') 
+        data_tarefa = request.POST.get('data')
+        if tarefa and data_tarefa: 
+           form = Agenda(tarefa=tarefa, data_tarefa=data_tarefa,)  
+           form.save()
+           return redirect('index')
+
+    else:
+        form = Agenda_Form()
+        return render(request, 'html/agendaMi.html', {'form': form})
+
+def agenda_ver(request):
+    agendas = Agenda.objects.all()
+    return render(request, 'html/agenda_ver.html', {'agendas': agendas})
+
+def editar_agenda(request, id):
+    registro = get_object_or_404(Agenda, pk=id)
+    form = Agenda_Form(instance=registro)
+    if(request.method == 'POST'):
+        form = Agenda_Form(request.POST, instance=registro)
+        if form.is_valid():
+            registro.save()
+            return redirect(reverse('agenda_ver'))
+        else:
+            return render(request, 'html/editar_agenda.html', {'form': form, 'registro': registro})    
+    else:
+        return render(request, 'html/editar_agenda.html', {'form': form, 'registro': registro})
+
+def agenda_excluir(request, id):
+    agenda = get_object_or_404(Agenda, pk=id)
+    agenda.delete()
+    return redirect(reverse('agenda_ver'))
+
+
+
 
 def paciente(request):
     search = request.GET.get('search')
@@ -99,3 +134,4 @@ def anotação_excluir(request, id):
     paciente = anotação.paciente.pk
     anotação.delete()
     return redirect(reverse('anotação_dados', kwargs={'id': paciente}))
+

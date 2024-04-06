@@ -1,0 +1,247 @@
+body {
+  font-family: "Arial", sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 20px;
+  display: flex; /* Adicionando display flex para criar um layout de coluna */
+  background: linear-gradient(
+    to right,
+    #d5cdcb,
+    #cd6542,
+    #ce8e75,
+    #d9ab6f,
+    #dabe99,
+    #9db7ac,
+    #659f91,
+    #9ebbc3,
+    #98b5bb,
+    #d2825f,
+    #d6ae73,
+    #d4d5cd,
+    #cccccc
+  );
+}
+
+.container {
+  display: grid;
+  margin-top: 25px;
+  margin-left: 50px;
+  grid-template-columns: 1fr 1fr; /* Divide a área em duas colunas */
+  gap: 20px; /* Adiciona um espaço entre as colunas */
+}
+
+.todo-container {
+  width: 300px; /* Definindo a largura da área de tarefas */
+  background: rgba(255, 255, 255, 0.8); /* Adicionando opacidade ao fundo */
+  padding: 25px; /* Reduzindo o padding para diminuir o tamanho da caixa */
+  border-radius: 15px; /* Reduzindo o raio da borda */
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); /* Reduzindo o tamanho da sombra e ajustando a opacidade */
+}
+
+.notes-section {
+  width: 600px; /* Definindo a largura da área de anotações */
+  margin-left: 40px; /* Adicionando margem à esquerda para separar as duas áreas */
+  padding: 25px; /* Reduzindo o padding para diminuir o tamanho da caixa */
+  background: rgba(255, 255, 255, 0.8); /* Adicionando opacidade ao fundo */
+  border-radius: 15px; /* Reduzindo o raio da borda */
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); /* Reduzindo o tamanho da sombra e ajustando a opacidade */
+}
+
+h1 {
+  text-align: center;
+}
+
+.taskInput,
+.dateInput {
+  width: 70%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  border-radius: 25px;
+  text-align: center;
+}
+
+#addTaskBtn {
+  width: 25%;
+  padding: 10px;
+  background-color: #5cb85c;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#addTaskBtn:hover {
+  background-color: #4cae4c;
+}
+
+#addNoteBtn {
+  width: 30%;
+  padding: 15px;
+  background-color: #5cb85c;
+  color: white;
+  border: none;
+  border-radius: 7px;
+  cursor: pointer;
+}
+
+#addTaskBtn:hover {
+  background-color: #4cae4c;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  background: #eee;
+  margin-bottom: 5px;
+  padding: 10px;
+  border-radius: 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+li:hover {
+  transform: scale(1.02);
+}
+
+li.completed {
+  text-decoration: line-through;
+  opacity: 0.6;
+}
+
+button {
+  margin: 2px;
+  color: #615858;
+  border: 15;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background-color: #449d44;
+}
+
+button.edit,
+button.delete {
+  width: 80px; /* Reduzindo a largura */
+  height: 30px; /* Reduzindo a altura */
+  padding: 5px 10px; /* Reduzindo o padding */
+  cursor: pointer;
+  transition: color 0.3s ease;
+  font-size: 12px; /* Reduzindo o tamanho da fonte */
+}
+
+
+
+
+button.edit:hover {
+  color: #f0ad4e;
+}
+
+button.delete:hover {
+  color: #d9534f;
+}
+
+.notes-section input[type="text"],
+.notes-section textarea,
+.notes-section input[type="date"],
+.notes-section button {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+#noteDateInput {
+  width: 20%;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 25px;
+
+}
+
+#noteInputContainer {
+  position: relative;
+}
+
+
+#addNoteBtn {
+  width: auto;
+  height: auto;
+  padding: 10px;
+  background-color: #5cb85c;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  position: absolute;
+  top: 50%; /* Alinhando verticalmente ao meio */
+  right: 10px; /* Ajuste conforme necessário */
+  transform: translateY(-50%); /* Ajustando o alinhamento vertical */
+}
+
+#addNoteBtn:hover {
+  background-color: #4cae4c;
+}
+
+
+
+#noteTitleInput,
+#noteInput {
+  width: 50%;
+  padding: 15px;
+  margin: 10px 0;
+  border-radius: 15px;
+  text-align: center;
+}
+
+.notes-section textarea {
+  height: 70px; 
+}
+
+.notes-list li {
+  margin-bottom: 10px;
+}
+
+.notes-list button {
+  background-color: #5cb85c;
+  color: #fff;
+  border: 0;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  padding: 5px 10px; /* Reduzindo o padding */
+  font-size: 12px; /* Reduzindo o tamanho da fonte */
+}
+
+.notes-list button:hover {
+  background-color: #449d44;
+}
+
+.notes-list .note-actions {
+  display: inline-block;
+  width: 140px; /* Largura dos botões */
+  vertical-align: top;
+  text-align: right; /* Alinhar os botões à direita */
+}
+
+.notes-list button.edit,
+.notes-list button.delete {
+  width: auto; /* Redefinindo a largura para automática */
+  height: auto; /* Redefinindo a altura para automática */
+}
+
+.notes-list button.edit:hover {
+  color: #f0ad4e;
+}
+
+.notes-list button.delete:hover {
+  color: #d9534f;
+}
+

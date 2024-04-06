@@ -22,4 +22,7 @@ class Anotação(models.Model):
     registro = models.TextField()
     data = models.DateTimeField(auto_now_add=True)
 
-
+class Agenda(models.Model):
+    tarefa = models.TextField(blank=True, null=True)
+    data_tarefa = models.DateField(blank=True, null=True)
+    

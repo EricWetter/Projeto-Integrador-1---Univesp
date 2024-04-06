@@ -1,5 +1,5 @@
 from django import forms
-from .models import Paciente, Anotação
+from .models import Paciente, Anotação, Agenda
 
 class Paciente_Form(forms.ModelForm):
 
@@ -38,3 +38,12 @@ class Anotação_Form(forms.ModelForm):
             'registro': forms.TextInput(attrs={'class': 'form-control'}),
         }
 
+class Agenda_Form(forms.ModelForm):
+
+    class Meta:
+        model = Agenda
+        fields = ('tarefa', 'data_tarefa',)
+        widgets = {
+            'tarefa': forms.TextInput(attrs={'class': 'taskInput'}),
+            'data_tarefa': forms.DateInput(attrs={'class': 'taskInput'}),
+        }
