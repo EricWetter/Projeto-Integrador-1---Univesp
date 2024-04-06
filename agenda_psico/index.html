@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agenda Psico</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="container">
+  <div class="todo-container">
+    <h1>Minhas tarefas</h1>
+    <input type="text" id="taskInput" placeholder="Adicione uma tarefa..." />
+    <input type="date" id="dateInput" />
+    <button id="addTaskBtn">Adicionar Tarefa</button>
+    <ul id="taskList"></ul>
+  </div>
+  <div class="notes-section">
+    <h1>Anotações</h1>
+    <div id="noteInputContainer">
+      <input type="text" id="noteTitleInput" placeholder="Título da Anotação">
+      <input type="date" id="noteDateInput">
+      <textarea id="noteInput" placeholder="Digite sua anotação aqui"></textarea>
+      <button id="addNoteBtn">Adicionar Anotação</button>
+    </div>
+    <ul class="notes-list" id="notesList"></ul>
+    
+</div>
+
+<script src="scripts.js"></script>
+</body>
+</html>
